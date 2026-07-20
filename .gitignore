@@ -1,9 +1,6 @@
 # 依赖
 node_modules/
 
-# 编译产物（源码在 src/，main.js 由 esbuild 构建生成）
-main.js
-
 # 项目文档 / 规划 / 测试
 docs/
 tests/
