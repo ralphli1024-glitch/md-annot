@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/mdannot-preview.svg" alt="MDAnnot" width="720">
+  <img src="src/img/detail.png" alt="MDAnnot" width="720">
 </p>
 
 <h1 align="center">MDAnnot</h1>
