@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "inlineSourceMap": true,       /* 内联 source map，方便调试时定位源码 */
+    "inlineSources": true,         /* 源码也内联进去，Debugger 可直接看到 .ts */
+    "module": "ESNext",            /* 使用 ESM 模块，esbuild 打包时会处理 */
+    "target": "ES6",               /* 输出 ES6 兼容代码，Obsidian 的 Electron 支持良好 */
+    "allowJs": true,               /* 允许引入 .js（Obsidian API 部分有 .js） */
+    "noImplicitAny": true,         /* 不允许隐式 any，提高类型安全性 */
+    "moduleResolution": "node",    /* Node.js 风格模块解析 */
+    "importHelpers": true,         /* 使用 tslib 辅助函数减少代码体积 */
+    "isolatedModules": true,       /* 每个文件独立编译，esbuild 需要此选项 */
+    "strictNullChecks": true,      /* 严格 null 检查，避免空指针 */
+    "lib": ["DOM", "ES5", "ES6", "ES7"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts"]
+}

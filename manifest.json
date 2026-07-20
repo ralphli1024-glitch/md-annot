@@ -1,0 +1,10 @@
+{
+  "id": "md-annot",
+  "name": "MDAnnot",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "在 Markdown 上留下你的阅读痕迹——高亮、划线、批注，不改原文",
+  "author": "",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

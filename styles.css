@@ -1,0 +1,587 @@
+/*
+ * MDAnnot 全局样式表
+ *
+ * 按模块分组：
+ *   1. 浮动工具栏 — FloatingToolbar
+ *   2. CM6 编辑器装饰 — CM6 Decorations（高亮/波浪线/批注标记）
+ *   3. 侧面板 — SidePanel（列表/筛选/导出）
+ *   4. Canvas 手写覆盖层 — CanvasOverlay
+ *
+ * 样式设计原则：
+ *   - 使用 CSS 变量（var(--background-primary) 等）保持与 Obsidian 主题一致
+ *   - 所有类名以 md-annot- 为前缀，避免与 Obsidian 内置样式冲突
+ */
+
+/* ════════════════════════════════════════
+   1. 浮动工具栏
+   ════════════════════════════════════════ */
+
+.md-annot-toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  align-items: center;
+}
+
+/* 单个工具栏按钮 */
+.md-annot-toolbar-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.md-annot-toolbar-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+.md-annot-toolbar-btn:active {
+  background: var(--background-modifier-active);
+}
+
+/* ════════════════════════════════════════
+   2. CM6 编辑器装饰
+   ════════════════════════════════════════ */
+
+/* 高亮批注：淡绿色背景 */
+.md-annot-highlight {
+  background-color: #90EE90;
+  border-radius: 2px;
+}
+
+/* 划线批注：蓝色波浪线 */
+.md-annot-underline {
+  text-decoration: wavy underline #4169E1;
+  text-underline-offset: 2px;
+}
+
+/* 文字批注：淡黄色背景 */
+.md-annot-comment {
+  background-color: #FFFFAA;
+  border-radius: 2px;
+}
+
+/* 批注行号侧的小圆点标记
+   通过 cm-gutter 伪元素实现 */
+.md-annot-comment-line .cm-gutterElement::after {
+  content: "●";
+  color: #FFA500;
+  font-size: 12px;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 段落级匹配：橙色虚线边框 */
+.md-annot-paragraph {
+  outline: 2px dashed #FFA500;
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+/* ════════════════════════════════════════
+   3. 侧面板（批注列表）
+   ════════════════════════════════════════ */
+
+.md-annot-side-panel {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 面板标题区域 */
+.md-annot-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.md-annot-panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.md-annot-export-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* 批注列表容器 */
+.md-annot-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 空状态提示 */
+.md-annot-panel-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 14px;
+}
+
+/* 单个批注条目卡片 */
+.md-annot-panel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  transition: box-shadow 0.15s ease;
+}
+
+.md-annot-panel-item:hover {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 条目第一行：类型 + 锚定状态 */
+.md-annot-item-row1 {
+  display: flex;
+  align-items: center;
+}
+
+/* 文字摘要 */
+.md-annot-item-text {
+  font-size: 13px;
+  word-break: break-all;
+  line-height: 1.4;
+  color: var(--text-normal);
+}
+
+/* 批注评论内容 */
+.md-annot-item-comment {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 6px;
+  background: var(--background-primary);
+  border-radius: 4px;
+  margin-top: 2px;
+
+/* 类型图标 */
+.md-annot-item-type-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.md-annot-item-type-icon .svg-icon {
+  width: 2px;
+  height: 8px;
+}
+
+/* 删除按钮（右上角） */
+.md-annot-item-delete-btn {
+  width: 2px;
+  height: 4px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  opacity: 0.4;
+  transition: all 0.15s;
+}
+
+.md-annot-item-delete-btn:hover {
+  background: rgba(244, 67, 54, 0.12);
+  color: #f44336;
+  opacity: 1;
+}
+
+.md-annot-item-delete-btn .svg-icon {
+  width: 2px;
+  height: 4px;
+}
+}
+
+/* 锚定状态颜色 */
+
+/* 操作按钮行 */
+
+.md-annot-jump-btn,
+.md-annot-delete-btn {
+  padding: 2px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.15s ease;
+}
+
+.md-annot-jump-btn:hover {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.md-annot-delete-btn {
+  color: #F44336;
+}
+
+.md-annot-delete-btn:hover {
+  background: #F44336;
+  color: white;
+}
+
+/* ════════════════════════════════════════
+   4. Canvas 手写覆盖层
+   ════════════════════════════════════════ */
+
+.md-annot-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+  z-index: 100;
+  cursor: crosshair;
+}
+
+/* 关闭手写模式时的光标恢复 */
+.md-annot-canvas-overlay[data-visible="false"] {
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   5. 设置面板
+   ════════════════════════════════════════ */
+
+/* 设置面板内的小标题 */
+.md-annot-settings-section {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.md-annot-settings-section h3 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+/* ════════════════════════════════════════
+   8. 阅读模式批注渲染
+   ════════════════════════════════════════ */
+
+/* 阅读模式高亮（背景色由 inline style 动态控制） */
+
+/* ════════════════════════════════════════
+   7. 工具栏按钮右上角角标
+   ════════════════════════════════════════ */
+
+/* 按钮设为 relative，作为 .toolbar-btn::after 的定位参考 */
+.md-annot-toolbar-btn {
+  position: relative;
+}
+
+/* 超过字符限制时按钮置灰不可点 */
+.md-annot-toolbar-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 选中文字包含对应批注时，按钮呈激活态（彩色边框 + 浅色背景） */
+.md-annot-toolbar-active {
+  box-shadow: inset 0 0 0 2px var(--md-badge-color);
+  background: color-mix(in srgb, var(--md-badge-color) 12%, transparent);
+  border-radius: 4px;
+}
+
+/* 右上角小圆点角标，颜色通过 --md-badge-color CSS 变量控制
+   大小 10px，比文档尾标（7px）略大，以示区分 */
+.md-annot-toolbar-btn::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--md-badge-color, var(--text-muted));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* 批注按钮 → 方形角标 */
+.md-annot-toolbar-comment::after {
+  border-radius: 0;
+}
+
+/* 划线按钮 → 三角角标 25px */
+.md-annot-toolbar-underline::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid var(--md-badge-color, var(--text-muted));
+  background: none;
+  border-radius: 0;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   9. 阅读模式批注渲染
+   ════════════════════════════════════════ */
+
+/* 阅读模式高亮（背景色由 inline style 动态控制） */
+.md-annot-reading-highlight {
+  border-radius: 2px;
+}
+
+/* 阅读模式划线（波浪线由 inline style 动态控制） */
+.md-annot-reading-underline {
+  text-underline-offset: 2px;
+}
+
+/* 阅读模式批注背景色（背景色由 inline style 动态控制） */
+.md-annot-reading-comment {
+  border-radius: 2px;
+}
+
+/* ════════════════════════════════════════
+   10. 筛选 + 排序控制栏（并排下拉框）
+   ════════════════════════════════════════ */
+
+.md-annot-controls-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.md-annot-controls-select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 6px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.md-annot-controls-select:hover {
+  border-color: var(--interactive-accent);
+}
+
+.md-annot-controls-select:focus {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 1px var(--interactive-accent);
+}
+
+/* ════════════════════════════════════════
+   11. 导出按钮
+   ════════════════════════════════════════ */
+
+.md-annot-panel-export {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.md-annot-panel-export-btn {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--interactive-accent);
+  border-radius: 6px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  text-align: center;
+}
+
+.md-annot-panel-export-btn:hover {
+  opacity: 0.85;
+}
+
+.md-annot-panel-export-btn:active {
+  opacity: 0.7;
+}
+
+/* ════════════════════════════════════════
+   12. 锚定状态视觉样式
+   ════════════════════════════════════════ */
+
+/* ── 编辑模式 — 模糊匹配：类型底色不变 + 橙色虚线底纹 ── */
+.md-annot-highlight.md-annot-status-fuzzy,
+.md-annot-underline.md-annot-status-fuzzy,
+.md-annot-comment.md-annot-status-fuzzy {
+  text-decoration: underline dotted rgba(255, 165, 0, 0.7);
+  text-underline-offset: 3px;
+}
+
+/* ── 编辑模式 — 丢失：半透明 + 删除线 + 红色虚线框 ── */
+.md-annot-highlight.md-annot-status-lost,
+.md-annot-underline.md-annot-status-lost,
+.md-annot-comment.md-annot-status-lost {
+  opacity: 0.5;
+  text-decoration: underline dotted rgba(231, 76, 60, 0.6);
+  text-underline-offset: 3px;
+  outline: 1px dashed rgba(231, 76, 60, 0.5);
+  outline-offset: -1px;
+  border-radius: 2px;
+}
+
+/* ── 编辑模式 — 段落级匹配（已有 .md-annot-paragraph，补足颜色） ── */
+
+/* ── 阅读模式 — 模糊匹配 ── */
+.md-annot-reading-highlight.md-annot-reading-fuzzy,
+.md-annot-reading-underline.md-annot-reading-fuzzy,
+.md-annot-reading-comment.md-annot-reading-fuzzy {
+  text-decoration: underline dotted rgba(255, 165, 0, 0.7);
+  text-underline-offset: 3px;
+}
+
+/* ── 阅读模式 — 段落匹配 ── */
+.md-annot-reading-paragraph {
+  outline: 2px dashed #FFA500;
+  outline-offset: -2px;
+  border-radius: 2px;
+  background-color: rgba(255, 165, 0, 0.08);
+}
+
+/* ── 阅读模式 — 丢失匹配 ── */
+.md-annot-reading-highlight.md-annot-reading-lost,
+.md-annot-reading-underline.md-annot-reading-lost,
+.md-annot-reading-comment.md-annot-reading-lost {
+  opacity: 0.55;
+  text-decoration: underline dotted rgba(231, 76, 60, 0.6);
+  text-underline-offset: 3px;
+  outline: 1px dashed rgba(231, 76, 60, 0.5);
+  outline-offset: -1px;
+  border-radius: 2px;
+}
+
+/* ── 编辑模式 — 段落级行标记 ── */
+
+/* ── 侧面板 — 状态标签 ── */
+.md-annot-status-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 0 6px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 3px;
+  margin-left: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.md-annot-status-badge-fuzzy {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.md-annot-status-badge-paragraph {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.md-annot-status-badge-lost {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ── 侧面板 — 左侧状态色边框 ── */
+.md-annot-item {
+  border-left: 3px solid transparent;
+}
+
+.md-annot-item.modo-status-exact {
+  border-left-color: #28a745;
+}
+
+.md-annot-item.modo-status-fuzzy {
+  border-left-color: #ffc107;
+}
+
+.md-annot-item.modo-status-paragraph {
+  border-left-color: #fd7e14;
+}
+
+.md-annot-item.modo-status-lost {
+  border-left-color: #dc3545;
+  opacity: 0.6;
+}
+
+/* ════════════════════════════════════════
+   13. 状态进度条
+   ════════════════════════════════════════ */
+
+.md-annot-status-bar {
+  display: inline-flex;
+  gap: 1px;
+  margin-left: auto;
+  margin-right: 12px;
+  margin-top: -1px;
+  align-items: center;
+}
+
+.md-annot-status-block {
+  width: 2px;
+  height: 10px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   14. 呼吸动画（文档中文字定位闪烁）
+   ════════════════════════════════════════ */
+
+@keyframes md-annot-text-pulse {
+  0%, 100% {
+    box-shadow: 0 0 3px 1px rgba(255, 165, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px 4px rgba(255, 165, 0, 0.8);
+  }
+}
+
+/* 编辑模式（CM6）：橙色脉冲框包裹批注文字 */
+.md-annot-breathing {
+  animation: md-annot-text-pulse 0.7s ease-in-out 3;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* 阅读模式：橙色脉冲框 */
+.md-annot-reading-breathing {
+  animation: md-annot-text-pulse 0.7s ease-in-out 3;
+  border-radius: 2px;
+}
+
+/* 侧面板卡片：仅静态选中标识，无动画 */
+.md-annot-item-focused {
+  border-left-color: var(--interactive-accent) !important;
+  background-color: rgba(255, 165, 0, 0.08);
+}
