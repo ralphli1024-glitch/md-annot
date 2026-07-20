@@ -1,0 +1,22 @@
+# 依赖
+node_modules/
+
+# 编译产物（源码在 src/，main.js 由 esbuild 构建生成）
+main.js
+
+# 项目文档 / 规划 / 测试
+docs/
+tests/
+计划/
+技术方案/
+需求/
+
+# 编辑器 / OS
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 环境
+.env
