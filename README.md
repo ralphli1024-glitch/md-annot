@@ -88,29 +88,19 @@
 2. 搜索 **MDAnnot**，点击安装
 3. 启用插件
 
-### BRAT安装（预览版）
+### BRAT安装
 
 1. 安装 [BRAT](https://obsidian.md/plugins?id=obsidian42-brat) 插件
-2. 在 BRAT 设置中添加 `yourname/md-annot`
+2. 在 BRAT 设置中添加该链接
 
 ### 手动下载
 
-1. 从 [Releases](https://github.com/yourname/md-annot/releases) 下载 `main.js`、`manifest.json`、`styles.css`
+1. 下载 `main.js`、`manifest.json`、`styles.css`
 2. 放入 `你的笔记库/.obsidian/plugins/md-annot/`
 3. 重新加载 Obsidian 并启用插件
 
 ---
 
-## 平台兼容性
-
-| 平台 | 支持程度 |
-|------|---------|
-| macOS 桌面 | 全部功能可用 |
-| Windows 桌面 | 全部功能可用 |
-| iPad / 平板 | 查看和创建批注，体验良好 |
-| 手机（iOS/Android） | 查看批注 |
-
----
 
 ## 技术栈
 
@@ -119,28 +109,10 @@
 | 语言 | TypeScript 5.x |
 | 编辑器 | CodeMirror 6（Obsidian 封装） |
 | 锚定算法 | FNV-1a 哈希 + Levenshtein 编辑距离 |
-| 存储 | `.annotations/` 目录 JSON 文件 |
+| 存储 | `.obsidian/md_annot` 目录 JSON 文件 |
 | 外部依赖 | 无（零 API / 零数据库 / 零 SDK） |
 | 测试 | Vitest（24 个测试用例） |
 
----
+## 多设备同步批注信息
 
-## Demo
-
-访问 [产品演示页](docs/MDAnnot%20产品演示.html) 在线体验交互效果。
-
----
-
-## License
-
-MIT
-
----
-
-## 链接
-
-- [产品介绍](docs/MDAnnot%20产品介绍.md)
-- [产品演示页](docs/MDAnnot%20产品演示.html)
-- [需求文档](需求/MDAnnot需求文档.md)
-- [技术方案](技术方案/MDAnnot技术方案.md)
-- [交接文档](docs/交接文档/MDAnnot%20项目交接文档.md)
+所有设备需要安装此插件，借助Remotely Save的能力，开启 【同步配置文件夹】
