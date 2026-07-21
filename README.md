@@ -10,10 +10,10 @@
 
 <p align="center">
   <a href="https://obsidian.md">
-    <img src="https://img.shields.io/badge/Obsidian-v1.5%2B-483699?style=flat-square" alt="Obsidian">
+    <img src="https://img.shields.io/badge/Obsidian-v1.12.7%2B-483699?style=flat-square" alt="Obsidian">
   </a>
   <a href="https://github.com/yourname/md-annot/releases">
-    <img src="https://img.shields.io/badge/version-0.1.0-blue?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
