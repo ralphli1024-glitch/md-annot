@@ -1,6 +1,10 @@
 import { App, Modal, Notice, PluginSettingTab, Setting } from "obsidian";
 import MDAnnotPlugin from "./main";
 import { AnnotationType, DEFAULT_SETTINGS } from "./data-models";
+<<<<<<< HEAD
+=======
+import { t, setLanguage } from "./i18n";
+>>>>>>> in18
 
 export class MDAnnotSettingTab extends PluginSettingTab {
   constructor(app: App, private plugin: MDAnnotPlugin) {
@@ -10,6 +14,7 @@ export class MDAnnotSettingTab extends PluginSettingTab {
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
+<<<<<<< HEAD
     containerEl.createEl("h2", { text: "MDAnnot 设置" });
 
     containerEl.createEl("h3", { text: "显示控制" });
@@ -17,6 +22,32 @@ export class MDAnnotSettingTab extends PluginSettingTab {
     new Setting(containerEl)
       .setName("批注开关")
       .setDesc("打开后可实现文本渲染 高亮/波浪线/评论")
+=======
+    containerEl.createEl("h2", { text: t('settings.title') });
+
+
+    new Setting(containerEl)
+      .setName(t('settings.language.name'))
+      .setDesc(t('settings.language.desc'))
+      .addDropdown((dropdown) => {
+        dropdown
+          .addOption('zh', '中文')
+          .addOption('en', 'English')
+          .setValue(this.plugin.settings.language)
+          .onChange(async (val: string) => {
+            this.plugin.settings.language = val as 'zh' | 'en';
+            await this.plugin.saveSettings();
+            setLanguage(val);
+            this.display();
+          });
+      });
+
+    containerEl.createEl("h3", { text: t('settings.displayControl') });
+
+    new Setting(containerEl)
+      .setName(t('settings.showInEditor.name'))
+      .setDesc(t('settings.showInEditor.desc'))
+>>>>>>> in18
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.showInEditor)
@@ -27,8 +58,13 @@ export class MDAnnotSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
+<<<<<<< HEAD
       .setName("自动显示批注面板")
       .setDesc("当前文档存在批注时，自动在右侧打开批注列表面板")
+=======
+      .setName(t('settings.autoShowPanel.name'))
+      .setDesc(t('settings.autoShowPanel.desc'))
+>>>>>>> in18
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.autoShowPanel)
@@ -39,11 +75,19 @@ export class MDAnnotSettingTab extends PluginSettingTab {
       );
 
     // ── 2. 批注样式 ──
+<<<<<<< HEAD
     containerEl.createEl("h3", { text: "颜色设置" });
 
     this.addColorPopup(
       containerEl,
       "高亮颜色", "编辑模式下高亮批注的背景色",
+=======
+    containerEl.createEl("h3", { text: t('settings.colorSettings') });
+
+    this.addColorPopup(
+      containerEl,
+      t('settings.colorSettings') + ' - ' + t('settings.showInEditor.name'), t('settings.colorDesc'),
+>>>>>>> in18
       "highlightColor", DEFAULT_SETTINGS.highlightColor,
       ["#F2EFE9","#D6D2CB","#1E1C19","#F9D2D2",
        "#FFE2C7","#FFF2BC","#D4EEDF","#D2E4F4",
@@ -52,7 +96,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
 
     this.addColorPopup(
       containerEl,
+<<<<<<< HEAD
       "划线颜色", "编辑模式下划线批注的波浪线颜色",
+=======
+      t('toolbar.underline'), t('settings.colorDesc'),
+>>>>>>> in18
       "underlineColor", DEFAULT_SETTINGS.underlineColor,
       ["#D6D2CB","#5A5650","#1E1C19","#D4EEDF",
        "#D2E4F4","#E2D9F3","#E07A7A","#F29E6D",
@@ -61,7 +109,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
 
     this.addColorPopup(
       containerEl,
+<<<<<<< HEAD
       "评论高亮颜色", "编辑模式下文字评论的标记背景色",
+=======
+      t('toolbar.comment'), t('settings.colorDesc'),
+>>>>>>> in18
       "commentHighlightColor", DEFAULT_SETTINGS.commentHighlightColor,
       ["#5A5650","#F9D2D2","#FFE2C7","#FFF2BC",
        "#D2E4F4","#E2D9F3","#E07A7A","#F29E6D",
@@ -70,8 +122,13 @@ export class MDAnnotSettingTab extends PluginSettingTab {
 
     // ── 颜色渲染模式 ──
     new Setting(containerEl)
+<<<<<<< HEAD
       .setName("颜色渲染模式")
       .setDesc("开启：选中文本颜色统一使用配置颜色。关闭：新选中文本使用配置颜色，不影响历史选中")
+=======
+      .setName(t('settings.colorRenderMode.name'))
+      .setDesc(t('settings.colorRenderMode.desc'))
+>>>>>>> in18
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.applyColorGlobally)
@@ -92,23 +149,40 @@ export class MDAnnotSettingTab extends PluginSettingTab {
       );
 
     // ── 数据存储 ──
+<<<<<<< HEAD
     containerEl.createEl("h3", { text: "数据存储" });
+=======
+    containerEl.createEl("h3", { text: t('settings.dataStorage') });
+>>>>>>> in18
 
     const annotDir = this.plugin.storage.getAnnotationsDir();
     const basePath = ((this.app.vault.adapter as any).getBasePath?.() || (this.app.vault.adapter as any).basePath || "") as string;
     const pathSetting = new Setting(containerEl)
+<<<<<<< HEAD
       .setName("批注数据保存路径")
       .setDesc("存放所有批注数据（.obsidian/md_annot/）的实际位置。如需多设备同步，请在 Remotely Save 中开启【同步配置文件夹】")
       .addExtraButton((btn) => {
         btn.setIcon("copy")
           .setTooltip("复制路径到剪贴板")
+=======
+      .setName(t('settings.dataPath.name'))
+      .setDesc(t('settings.dataPath.desc'))
+      .addExtraButton((btn) => {
+        btn.setIcon("copy")
+          .setTooltip(t('settings.copyPathTooltip'))
+>>>>>>> in18
           .onClick(() => {
             navigator.clipboard.writeText(basePath + "/" + annotDir + "/");
           });
       })
       .addButton((btn) => {
+<<<<<<< HEAD
         btn.setButtonText("清空数据")
           .setTooltip("删除所有批注数据到废纸篓")
+=======
+        btn.setButtonText(t('settings.clearDataBtn'))
+          .setTooltip(t('settings.clearDataTooltip'))
+>>>>>>> in18
           .onClick(() => {
             new ClearDataConfirmModal(this.app, annotDir, this.plugin).open();
           });
@@ -118,6 +192,7 @@ export class MDAnnotSettingTab extends PluginSettingTab {
     pathEl.setText(basePath + "/" + annotDir + "/");
 
     new Setting(containerEl)
+<<<<<<< HEAD
       .setName("清理失效缓存")
       .setDesc("扫描批注数据目录，删除那些对应源 .md 文件已不存在的孤立批注数据文件")
       .addButton((btn) => {
@@ -129,11 +204,25 @@ export class MDAnnotSettingTab extends PluginSettingTab {
               new Notice("MDAnnot: 未发现失效缓存文件");
             } else {
               new Notice(`MDAnnot: 已清理 ${removed.length} 个失效缓存文件`);
+=======
+      .setName(t('settings.cleanupCache.name'))
+      .setDesc(t('settings.cleanupCache.desc'))
+      .addButton((btn) => {
+        btn.setButtonText(t('settings.startCleanupBtn'))
+          .setTooltip(t('settings.cleanupTooltip'))
+          .onClick(async () => {
+            const removed = await this.plugin.storage.cleanupOrphanedAnnotations();
+            if (removed.length === 0) {
+              new Notice(t('settings.noCacheFiles'));
+            } else {
+              new Notice(`${t('settings.cleanedCache')} ${removed.length} ${t('settings.cleanedCacheSuffix')}`);
+>>>>>>> in18
             }
           });
       });
 
     // ── 数据导出 ──
+<<<<<<< HEAD
     containerEl.createEl("h3", { text: "数据导出" });
 
     new Setting(containerEl)
@@ -141,6 +230,15 @@ export class MDAnnotSettingTab extends PluginSettingTab {
       .setDesc("将所有文档的批注导出为 Markdown 文件，保存到仓库根目录")
       .addButton((btn) => {
         btn.setButtonText("导出所有批注")
+=======
+    containerEl.createEl("h3", { text: t('settings.dataExport') });
+
+    new Setting(containerEl)
+      .setName(t('settings.exportAll.name'))
+      .setDesc(t('settings.exportAll.desc'))
+      .addButton((btn) => {
+        btn.setButtonText(t('settings.exportAllBtn'))
+>>>>>>> in18
           .setCta()
           .onClick(async () => {
             await this.exportAllAnnotations();
@@ -170,7 +268,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
       border: 2px solid var(--background-modifier-border);
       cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     `;
+<<<<<<< HEAD
     trigger.title = "点击选择颜色";
+=======
+    trigger.title = t("settings.colorPickTooltip");
+>>>>>>> in18
 
     // 点击触发按钮时创建弹窗
     trigger.addEventListener("click", (e) => {
@@ -214,7 +316,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
           ${isDefault(preset) ? "outline: 2px dashed var(--text-muted); outline-offset: 2px;" : ""}
           box-sizing: border-box; transition: transform 0.1s;
         `;
+<<<<<<< HEAD
         swatch.title = isDefault(preset) ? `${preset}（默认色）` : preset;
+=======
+        swatch.title = isDefault(preset) ? t('settings.defaultColorLabel').replace('%s', preset) : preset;
+>>>>>>> in18
 
         swatch.addEventListener("click", (ev) => {
           ev.stopPropagation();
@@ -243,7 +349,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
     const registeredFiles = await storage.getRegisteredFiles();
 
     if (registeredFiles.length === 0) {
+<<<<<<< HEAD
       new Notice("MDAnnot: 没有找到批注数据");
+=======
+      new Notice(t('settings.noAnnotationData'));
+>>>>>>> in18
       return;
     }
 
@@ -298,7 +408,11 @@ export class MDAnnotSettingTab extends PluginSettingTab {
     }
 
     if (!md) {
+<<<<<<< HEAD
       new Notice("MDAnnot: 没有找到批注数据");
+=======
+      new Notice(t('settings.noAnnotationData'));
+>>>>>>> in18
       return;
     }
 
@@ -315,10 +429,17 @@ export class MDAnnotSettingTab extends PluginSettingTab {
 
     try {
       await this.app.vault.adapter.write(exportPath, md);
+<<<<<<< HEAD
       new Notice(`MDAnnot: 已导出所有批注到 ${exportPath}`);
     } catch (e) {
       console.error("MDAnnot: 导出所有批注失败", e);
       new Notice("MDAnnot: 导出所有批注失败");
+=======
+      new Notice(`${t('settings.exportedAll')} ${exportPath}`);
+    } catch (e) {
+      console.error(t('settings.exportAllFail'), e);
+      new Notice(t('settings.exportAllFail'));
+>>>>>>> in18
     }
   }
 }
@@ -335,11 +456,19 @@ class ClearDataConfirmModal extends Modal {
     this.modalEl.style.maxWidth = "90vw";
 
     contentEl.createEl("h3", {
+<<<<<<< HEAD
       text: "清空批注数据",
       attr: { style: "color: var(--text-normal);" },
     });
     contentEl.createEl("p", {
       text: "数据将被删除到废纸篓，确认清除吗？",
+=======
+      text: t('settings.confirmClearTitle'),
+      attr: { style: "color: var(--text-normal);" },
+    });
+    contentEl.createEl("p", {
+      text: t('settings.confirmClearDesc'),
+>>>>>>> in18
       attr: { style: "color: var(--text-muted);" },
     });
 
@@ -348,7 +477,11 @@ class ClearDataConfirmModal extends Modal {
     });
 
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "取消",
+=======
+      text: t('settings.cancel'),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;",
       },
@@ -357,7 +490,11 @@ class ClearDataConfirmModal extends Modal {
     });
 
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "确认清除",
+=======
+      text: t('settings.confirmClearBtn'),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--color-red); color: var(--text-on-accent); cursor: pointer;",
       },
@@ -391,17 +528,30 @@ class ConfirmModal extends Modal {
 
   onOpen(): void {
     const { contentEl } = this;
+<<<<<<< HEAD
     contentEl.createEl('h3', { text: '确认开启', attr: { style: 'color: var(--text-normal);' } });
     contentEl.createEl('p', {
       text: '开启后，所有已高亮、划线、评论都将使用当前颜色，已存储的单个批注颜色会被忽略，是否确定？',
     });
     const row = contentEl.createDiv({ attr: { style: 'display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;' } });
     row.createEl('button', { text: '取消' }).addEventListener('click', () => {
+=======
+    contentEl.createEl('h3', { text: t('settings.confirmRenderModeTitle'), attr: { style: 'color: var(--text-normal);' } });
+    contentEl.createEl('p', {
+      text: t('settings.confirmRenderModeDesc'),
+    });
+    const row = contentEl.createDiv({ attr: { style: 'display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;' } });
+    row.createEl('button', { text: t('settings.cancel') }).addEventListener('click', () => {
+>>>>>>> in18
       this.resolve(false);
       this.close();
     });
     row.createEl('button', {
+<<<<<<< HEAD
       text: '确定',
+=======
+      text: t('settings.confirm'),
+>>>>>>> in18
       attr: { style: 'background: var(--interactive-accent); color: var(--text-on-accent);' },
     }).addEventListener('click', () => {
       this.resolve(true);

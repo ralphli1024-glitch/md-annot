@@ -55,7 +55,12 @@ var DEFAULT_SETTINGS = {
   autoSaveInterval: 30,
   applyColorGlobally: true,
   highlightIconPath: "",
+<<<<<<< HEAD
   highlightIconSize: 24
+=======
+  highlightIconSize: 24,
+  language: "zh"
+>>>>>>> in18
 };
 
 // src/anchor-engine.ts
@@ -915,6 +920,200 @@ var StorageService = class {
 
 // src/floating-toolbar.ts
 var import_obsidian2 = require("obsidian");
+<<<<<<< HEAD
+=======
+
+// src/i18n/zh.ts
+var zh = {
+  toolbar: {
+    highlight: "\u9AD8\u4EAE",
+    underline: "\u5212\u7EBF",
+    comment: "\u8BC4\u8BBA",
+    commentPlaceholder: "\u5728\u6B64\u8F93\u5165\u6279\u6CE8\u6587\u5B57...",
+    confirm: "\u786E\u5B9A",
+    cancel: "\u53D6\u6D88"
+  },
+  panel: {
+    title: "\u6279\u6CE8\u5217\u8868",
+    filterAll: "\u5168\u90E8",
+    filterHighlight: "\u9AD8\u4EAE",
+    filterUnderline: "\u5212\u7EBF",
+    filterComment: "\u6279\u6CE8",
+    sortPosition: "\u4F4D\u7F6E",
+    sortHighlightFirst: "\u9AD8\u4EAE\u5728\u524D",
+    sortCommentFirst: "\u6279\u6CE8\u5728\u524D",
+    empty: "\u6682\u65E0\u6279\u6CE8",
+    exportBtn: "\u{1F4E5} \u5BFC\u51FA\u6279\u6CE8",
+    statusExact: "\u7CBE\u786E\u5339\u914D",
+    statusFuzzy: "\u6A21\u7CCA",
+    statusParagraph: "\u6BB5\u843D",
+    statusLost: "\u4E22\u5931",
+    fileExists: "\u6587\u4EF6\u5DF2\u5B58\u5728",
+    fileExistsDesc: "\u5DF2\u5B58\u5728\uFF0C\u662F\u5426\u8986\u76D6\uFF1F",
+    overwrite: "\u8986\u76D6",
+    cancel: "\u53D6\u6D88",
+    noFileOpen: "\u5F53\u524D\u6CA1\u6709\u6253\u5F00\u7684\u6587\u4EF6",
+    noAnnotations: "\u5F53\u524D\u6587\u6863\u6CA1\u6709\u6279\u6CE8",
+    exported: "MDAnnot: \u5DF2\u5BFC\u51FA\u6279\u6CE8\u5230",
+    exportFail: "MDAnnot: \u5BFC\u51FA\u6279\u6CE8\u5931\u8D25"
+  },
+  command: {
+    togglePanel: "\u5207\u6362\u6279\u6CE8\u9762\u677F"
+  },
+  settings: {
+    title: "MDAnnot \u8BBE\u7F6E",
+    language: { name: "\u8BED\u8A00", desc: "\u9009\u62E9\u63D2\u4EF6\u754C\u9762\u8BED\u8A00" },
+    displayControl: "\u663E\u793A\u63A7\u5236",
+    colorSettings: "\u989C\u8272\u8BBE\u7F6E",
+    colorDesc: "\u9009\u62E9\u6279\u6CE8\u989C\u8272",
+    dataStorage: "\u6570\u636E\u5B58\u50A8",
+    dataExport: "\u6570\u636E\u5BFC\u51FA",
+    showInEditor: { name: "\u6279\u6CE8\u5F00\u5173", desc: "\u6253\u5F00\u540E\u53EF\u5B9E\u73B0\u6587\u672C\u6E32\u67D3 \u9AD8\u4EAE/\u6CE2\u6D6A\u7EBF/\u8BC4\u8BBA" },
+    autoShowPanel: { name: "\u81EA\u52A8\u663E\u793A\u6279\u6CE8\u9762\u677F", desc: "\u5F53\u524D\u6587\u6863\u5B58\u5728\u6279\u6CE8\u65F6\uFF0C\u81EA\u52A8\u5728\u53F3\u4FA7\u6253\u5F00\u6279\u6CE8\u5217\u8868\u9762\u677F" },
+    colorRenderMode: { name: "\u989C\u8272\u6E32\u67D3\u6A21\u5F0F", desc: "\u5F00\u542F\uFF1A\u9009\u4E2D\u6587\u672C\u989C\u8272\u7EDF\u4E00\u4F7F\u7528\u914D\u7F6E\u989C\u8272\u3002\u5173\u95ED\uFF1A\u65B0\u9009\u4E2D\u6587\u672C\u4F7F\u7528\u914D\u7F6E\u989C\u8272\uFF0C\u4E0D\u5F71\u54CD\u5386\u53F2\u9009\u4E2D" },
+    dataPath: { name: "\u6279\u6CE8\u6570\u636E\u4FDD\u5B58\u8DEF\u5F84", desc: "\u5B58\u653E\u6240\u6709\u6279\u6CE8\u6570\u636E\uFF08.obsidian/md_annot/\uFF09\u7684\u5B9E\u9645\u4F4D\u7F6E\u3002\u5982\u9700\u591A\u8BBE\u5907\u540C\u6B65\uFF0C\u8BF7\u5728 Remotely Save \u4E2D\u5F00\u542F\u3010\u540C\u6B65\u914D\u7F6E\u6587\u4EF6\u5939\u3011" },
+    cleanupCache: { name: "\u6E05\u7406\u5931\u6548\u7F13\u5B58", desc: "\u626B\u63CF\u6279\u6CE8\u6570\u636E\u76EE\u5F55\uFF0C\u5220\u9664\u90A3\u4E9B\u5BF9\u5E94\u6E90 .md \u6587\u4EF6\u5DF2\u4E0D\u5B58\u5728\u7684\u5B64\u7ACB\u6279\u6CE8\u6570\u636E\u6587\u4EF6" },
+    exportAll: { name: "\u5BFC\u51FA\u6240\u6709\u6279\u6CE8", desc: "\u5C06\u6240\u6709\u6587\u6863\u7684\u6279\u6CE8\u5BFC\u51FA\u4E3A Markdown \u6587\u4EF6\uFF0C\u4FDD\u5B58\u5230\u4ED3\u5E93\u6839\u76EE\u5F55" },
+    clearDataBtn: "\u6E05\u7A7A\u6570\u636E",
+    startCleanupBtn: "\u5F00\u59CB\u6E05\u7406",
+    exportAllBtn: "\u5BFC\u51FA\u6240\u6709\u6279\u6CE8",
+    copyPathTooltip: "\u590D\u5236\u8DEF\u5F84\u5230\u526A\u8D34\u677F",
+    clearDataTooltip: "\u5220\u9664\u6240\u6709\u6279\u6CE8\u6570\u636E\u5230\u5E9F\u7EB8\u7BD3",
+    cleanupTooltip: "\u68C0\u67E5\u5E76\u5220\u9664\u5DF2\u65E0\u6CD5\u627E\u5230\u5BF9\u5E94\u6587\u6863\u7684\u6279\u6CE8\u7F13\u5B58",
+    confirmClearTitle: "\u6E05\u7A7A\u6279\u6CE8\u6570\u636E",
+    confirmClearDesc: "\u6570\u636E\u5C06\u88AB\u5220\u9664\u5230\u5E9F\u7EB8\u7BD3\uFF0C\u786E\u8BA4\u6E05\u9664\u5417\uFF1F",
+    confirmClearBtn: "\u786E\u8BA4\u6E05\u9664",
+    confirmRenderModeTitle: "\u786E\u8BA4\u5F00\u542F",
+    confirmRenderModeDesc: "\u5F00\u542F\u540E\uFF0C\u6240\u6709\u5DF2\u9AD8\u4EAE\u3001\u5212\u7EBF\u3001\u8BC4\u8BBA\u90FD\u5C06\u4F7F\u7528\u5F53\u524D\u989C\u8272\uFF0C\u5DF2\u5B58\u50A8\u7684\u5355\u4E2A\u6279\u6CE8\u989C\u8272\u4F1A\u88AB\u5FFD\u7565\uFF0C\u662F\u5426\u786E\u5B9A\uFF1F",
+    noCacheFiles: "MDAnnot: \u672A\u53D1\u73B0\u5931\u6548\u7F13\u5B58\u6587\u4EF6",
+    cleanedCache: "MDAnnot: \u5DF2\u6E05\u7406",
+    cleanedCacheSuffix: "\u4E2A\u5931\u6548\u7F13\u5B58\u6587\u4EF6",
+    noAnnotationData: "MDAnnot: \u6CA1\u6709\u627E\u5230\u6279\u6CE8\u6570\u636E",
+    exportedAll: "MDAnnot: \u5DF2\u5BFC\u51FA\u6240\u6709\u6279\u6CE8\u5230",
+    exportAllFail: "MDAnnot: \u5BFC\u51FA\u6240\u6709\u6279\u6CE8\u5931\u8D25",
+    colorPickTooltip: "\u70B9\u51FB\u9009\u62E9\u989C\u8272",
+    defaultColorLabel: "%s\uFF08\u9ED8\u8BA4\u8272\uFF09",
+    deleteBtn: "\u5220\u9664",
+    confirm: "\u786E\u5B9A",
+    cancel: "\u53D6\u6D88"
+  },
+  exportTemplate: {
+    tag: "\u6807\u7B7E #\u6279\u6CE8",
+    highlights: "# \u9AD8\u4EAE",
+    underlines: "# \u5212\u7EBF",
+    comments: "# \u6279\u6CE8",
+    sourceDoc: "# \u6E90\u6587\u6863"
+  }
+};
+var zh_default = zh;
+
+// src/i18n/en.ts
+var en = {
+  toolbar: {
+    highlight: "Highlight",
+    underline: "Underline",
+    comment: "Comment",
+    commentPlaceholder: "Type your comment here...",
+    confirm: "OK",
+    cancel: "Cancel"
+  },
+  panel: {
+    title: "Annotations",
+    filterAll: "All",
+    filterHighlight: "Highlight",
+    filterUnderline: "Underline",
+    filterComment: "Comment",
+    sortPosition: "Position",
+    sortHighlightFirst: "Highlight first",
+    sortCommentFirst: "Comment first",
+    empty: "No annotations",
+    exportBtn: "\u{1F4E5} Export",
+    statusExact: "Exact",
+    statusFuzzy: "Fuzzy",
+    statusParagraph: "Paragraph",
+    statusLost: "Lost",
+    fileExists: "File exists",
+    fileExistsDesc: "already exists. Overwrite?",
+    overwrite: "Overwrite",
+    cancel: "Cancel",
+    noFileOpen: "No file is currently open",
+    noAnnotations: "No annotations in current document",
+    exported: "MDAnnot: Exported annotations to",
+    exportFail: "MDAnnot: Failed to export annotations"
+  },
+  command: {
+    togglePanel: "Toggle annotation panel"
+  },
+  settings: {
+    title: "MDAnnot Settings",
+    language: { name: "Language", desc: "Select the plugin UI language" },
+    displayControl: "Display Control",
+    colorSettings: "Color Settings",
+    colorDesc: "Select annotation color",
+    dataStorage: "Data Storage",
+    dataExport: "Data Export",
+    showInEditor: { name: "Show Annotations", desc: "Display highlight/underline/comment marks in editor" },
+    autoShowPanel: { name: "Auto-show Panel", desc: "Automatically open the annotation panel when annotations exist" },
+    colorRenderMode: { name: "Color Mode", desc: "On: all annotations use current config colors. Off: new annotations use config colors without affecting history" },
+    dataPath: { name: "Annotation Data Path", desc: "All annotation data is stored in .obsidian/md_annot/. Enable 'Sync config folder' in Remotely Save for cross-device sync" },
+    cleanupCache: { name: "Cleanup Orphaned Cache", desc: "Scan annotation data directory and remove entries whose source .md file no longer exists" },
+    exportAll: { name: "Export All Annotations", desc: "Export annotations from all documents as Markdown files, saved to vault root" },
+    clearDataBtn: "Clear Data",
+    startCleanupBtn: "Start Cleanup",
+    exportAllBtn: "Export All",
+    copyPathTooltip: "Copy path to clipboard",
+    clearDataTooltip: "Move all annotation data to trash",
+    cleanupTooltip: "Check and remove orphaned annotation caches",
+    confirmClearTitle: "Clear Annotation Data",
+    confirmClearDesc: "All data will be moved to trash. Continue?",
+    confirmClearBtn: "Clear",
+    confirmRenderModeTitle: "Confirm Switch",
+    confirmRenderModeDesc: "After switching, all highlights, underlines, and comments will use the current config colors. Per-annotation colors will be ignored. Continue?",
+    noCacheFiles: "MDAnnot: No orphaned cache files found",
+    cleanedCache: "MDAnnot: Cleaned up",
+    cleanedCacheSuffix: "orphaned cache files",
+    noAnnotationData: "MDAnnot: No annotation data found",
+    exportedAll: "MDAnnot: Exported all annotations to",
+    exportAllFail: "MDAnnot: Failed to export all annotations",
+    colorPickTooltip: "Click to pick a color",
+    defaultColorLabel: "%s (default)",
+    deleteBtn: "Delete",
+    confirm: "OK",
+    cancel: "Cancel"
+  },
+  exportTemplate: {
+    tag: "tags #annotation",
+    highlights: "# Highlights",
+    underlines: "# Underlines",
+    comments: "# Comments",
+    sourceDoc: "# Source Document"
+  }
+};
+var en_default = en;
+
+// src/i18n/index.ts
+var locales = { zh: zh_default, en: en_default };
+var currentLang = "zh";
+function setLanguage(lang) {
+  if (locales[lang]) {
+    currentLang = lang;
+  }
+}
+function t(key) {
+  const keys = key.split(".");
+  let value = locales[currentLang];
+  for (const k of keys) {
+    if (value && typeof value === "object" && k in value) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+  return typeof value === "string" ? value : key;
+}
+
+// src/floating-toolbar.ts
+>>>>>>> in18
 function darkenColor(hex, amount) {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -992,7 +1191,11 @@ var FloatingToolbar = class {
     this.addButton(
       "brush",
       "highlight",
+<<<<<<< HEAD
       "\u9AD8\u4EAE",
+=======
+      t("toolbar.highlight"),
+>>>>>>> in18
       true,
       () => {
         var _a2;
@@ -1018,7 +1221,11 @@ var FloatingToolbar = class {
     this.addButton(
       "\u3030\uFE0F",
       "underline",
+<<<<<<< HEAD
       "\u5212\u7EBF",
+=======
+      t("toolbar.underline"),
+>>>>>>> in18
       false,
       () => {
         var _a2;
@@ -1044,7 +1251,11 @@ var FloatingToolbar = class {
     this.addButton(
       "message-circle",
       "comment",
+<<<<<<< HEAD
       "\u8BC4\u8BBA",
+=======
+      t("toolbar.comment"),
+>>>>>>> in18
       true,
       () => {
         if (isOverLimit)
@@ -1210,7 +1421,11 @@ var FloatingToolbar = class {
     this.addButton(
       "brush",
       "highlight",
+<<<<<<< HEAD
       "\u9AD8\u4EAE",
+=======
+      t("toolbar.highlight"),
+>>>>>>> in18
       true,
       () => {
         if (isOverLimit || foundLine < 0)
@@ -1234,7 +1449,11 @@ var FloatingToolbar = class {
     this.addButton(
       "\u3030\uFE0F",
       "underline",
+<<<<<<< HEAD
       "\u5212\u7EBF",
+=======
+      t("toolbar.underline"),
+>>>>>>> in18
       false,
       () => {
         if (isOverLimit || foundLine < 0)
@@ -1258,7 +1477,11 @@ var FloatingToolbar = class {
     this.addButton(
       "message-circle",
       "comment",
+<<<<<<< HEAD
       "\u8BC4\u8BBA",
+=======
+      t("toolbar.comment"),
+>>>>>>> in18
       true,
       () => {
         if (isOverLimit)
@@ -1317,19 +1540,31 @@ var CommentModal = class extends import_obsidian2.Modal {
         style: "width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-normal); box-sizing: border-box;"
       }
     });
+<<<<<<< HEAD
     input.placeholder = "\u5728\u6B64\u8F93\u5165\u6279\u6CE8\u6587\u5B57...";
+=======
+    input.placeholder = t("toolbar.commentPlaceholder");
+>>>>>>> in18
     input.focus();
     const btnRow = contentEl.createDiv({
       attr: { style: "display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px;" }
     });
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "\u53D6\u6D88",
+=======
+      text: t("toolbar.cancel"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;"
       }
     }).addEventListener("click", () => this.close());
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "\u786E\u5B9A",
+=======
+      text: t("toolbar.confirm"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--interactive-accent); color: var(--text-on-accent); cursor: pointer;"
       }
@@ -1406,6 +1641,7 @@ var SidePanelView = class extends import_obsidian3.ItemView {
   render() {
     this.contentEl.empty();
     const header = this.contentEl.createDiv({ cls: "md-annot-panel-header" });
+<<<<<<< HEAD
     header.createEl("h3", { text: "\u6279\u6CE8\u5217\u8868" });
     const controlsBar = this.contentEl.createDiv({ cls: "md-annot-controls-bar" });
     const filterSelect = controlsBar.createEl("select", { cls: "md-annot-controls-select" });
@@ -1414,6 +1650,16 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       { value: "highlight" /* HIGHLIGHT */, label: "\u9AD8\u4EAE" },
       { value: "underline" /* UNDERLINE */, label: "\u5212\u7EBF" },
       { value: "comment" /* COMMENT */, label: "\u6279\u6CE8" }
+=======
+    header.createEl("h3", { text: t("panel.title") });
+    const controlsBar = this.contentEl.createDiv({ cls: "md-annot-controls-bar" });
+    const filterSelect = controlsBar.createEl("select", { cls: "md-annot-controls-select" });
+    const filterOptions = [
+      { value: "all", label: t("panel.filterAll") },
+      { value: "highlight" /* HIGHLIGHT */, label: t("panel.filterHighlight") },
+      { value: "underline" /* UNDERLINE */, label: t("panel.filterUnderline") },
+      { value: "comment" /* COMMENT */, label: t("panel.filterComment") }
+>>>>>>> in18
     ];
     for (const opt of filterOptions) {
       filterSelect.createEl("option", { value: opt.value, text: opt.label });
@@ -1425,9 +1671,15 @@ var SidePanelView = class extends import_obsidian3.ItemView {
     });
     const sortSelect = controlsBar.createEl("select", { cls: "md-annot-controls-select" });
     const sortOptions = [
+<<<<<<< HEAD
       { value: "position", label: "\u4F4D\u7F6E" },
       { value: "type-asc", label: "\u9AD8\u4EAE\u5728\u524D" },
       { value: "type-desc", label: "\u6279\u6CE8\u5728\u524D" }
+=======
+      { value: "position", label: t("panel.sortPosition") },
+      { value: "type-asc", label: t("panel.sortHighlightFirst") },
+      { value: "type-desc", label: t("panel.sortCommentFirst") }
+>>>>>>> in18
     ];
     for (const opt of sortOptions) {
       sortSelect.createEl("option", { value: opt.value, text: opt.label });
@@ -1441,7 +1693,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
     const annotations = this.getFilteredAnnotations();
     if (annotations.length === 0) {
       listEl.createEl("p", {
+<<<<<<< HEAD
         text: "\u6682\u65E0\u6279\u6CE8",
+=======
+        text: t("panel.empty"),
+>>>>>>> in18
         cls: "md-annot-panel-empty"
       });
       return;
@@ -1465,7 +1721,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       if (svgEl) {
         svgEl.style.cssText = "width:8px;height:8px;";
       }
+<<<<<<< HEAD
       deleteBtn.title = "\u5220\u9664";
+=======
+      deleteBtn.title = t("settings.deleteBtn");
+>>>>>>> in18
       deleteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         this.annotationManager.deleteAnnotation(anno.id);
@@ -1483,7 +1743,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
     const exportBtnContainer = this.contentEl.createDiv({ cls: "md-annot-panel-export" });
     const exportBtn = exportBtnContainer.createEl("button", {
       cls: "md-annot-panel-export-btn",
+<<<<<<< HEAD
       text: "\u{1F4E5} \u5BFC\u51FA\u6279\u6CE8"
+=======
+      text: t("panel.exportBtn")
+>>>>>>> in18
     });
     exportBtn.addEventListener("click", () => {
       this.exportCurrentAnnotations();
@@ -1687,7 +1951,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
   async exportCurrentAnnotations() {
     const filePath = this.annotationManager.getCurrentFilePath();
     if (!filePath) {
+<<<<<<< HEAD
       new import_obsidian3.Notice("MDAnnot: \u5F53\u524D\u6CA1\u6709\u6253\u5F00\u7684\u6587\u4EF6");
+=======
+      new import_obsidian3.Notice(t("panel.noFileOpen"));
+>>>>>>> in18
       return;
     }
     const allAnnotations = this.annotationManager.getAllAnnotations();
@@ -1695,7 +1963,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       (a) => a.type !== "handwriting" /* HANDWRITING */
     );
     if (annotations.length === 0) {
+<<<<<<< HEAD
       new import_obsidian3.Notice("MDAnnot: \u5F53\u524D\u6587\u6863\u6CA1\u6709\u6279\u6CE8");
+=======
+      new import_obsidian3.Notice(t("panel.noAnnotations"));
+>>>>>>> in18
       return;
     }
     const mdContent = this.generateExportMarkdown(annotations, filePath);
@@ -1712,10 +1984,17 @@ var SidePanelView = class extends import_obsidian3.ItemView {
     }
     try {
       await this.app.vault.adapter.write(exportPath, mdContent);
+<<<<<<< HEAD
       new import_obsidian3.Notice(`MDAnnot: \u5DF2\u5BFC\u51FA\u6279\u6CE8\u5230 ${exportPath}`);
     } catch (e) {
       console.error("MDAnnot: \u5BFC\u51FA\u6279\u6CE8\u5931\u8D25", e);
       new import_obsidian3.Notice("MDAnnot: \u5BFC\u51FA\u6279\u6CE8\u5931\u8D25");
+=======
+      new import_obsidian3.Notice(`${t("panel.exported")} ${exportPath}`);
+    } catch (e) {
+      console.error("MDAnnot: \u5BFC\u51FA\u6279\u6CE8\u5931\u8D25", e);
+      new import_obsidian3.Notice(t("panel.exportFail"));
+>>>>>>> in18
     }
   }
   generateExportMarkdown(annotations, filePath) {
@@ -1730,7 +2009,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       (a) => a.type === "comment" /* COMMENT */
     );
     if (highlights.length > 0) {
+<<<<<<< HEAD
       md += `# \u9AD8\u4EAE
+=======
+      md += `${t("exportTemplate.highlights")}
+>>>>>>> in18
 `;
       highlights.forEach((a) => {
         md += `- ${a.targetText}
@@ -1739,7 +2022,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       md += "\n";
     }
     if (underlines.length > 0) {
+<<<<<<< HEAD
       md += `# \u5212\u7EBF
+=======
+      md += `${t("exportTemplate.underlines")}
+>>>>>>> in18
 `;
       underlines.forEach((a) => {
         md += `- ${a.targetText}
@@ -1748,7 +2035,11 @@ var SidePanelView = class extends import_obsidian3.ItemView {
       md += "\n";
     }
     if (comments.length > 0) {
+<<<<<<< HEAD
       md += `# \u6279\u6CE8
+=======
+      md += `${t("exportTemplate.comments")}
+>>>>>>> in18
 `;
       comments.forEach((a) => {
         md += `- ${a.targetText}
@@ -1778,16 +2069,26 @@ var OverwriteConfirmModal = class extends import_obsidian3.Modal {
     const { contentEl } = this;
     this.modalEl.style.width = "400px";
     this.modalEl.style.maxWidth = "90vw";
+<<<<<<< HEAD
     contentEl.createEl("h3", { text: "\u6587\u4EF6\u5DF2\u5B58\u5728" });
     contentEl.createEl("p", {
       text: `"${this.path}" \u5DF2\u5B58\u5728\uFF0C\u662F\u5426\u8986\u76D6\uFF1F`,
+=======
+    contentEl.createEl("h3", { text: t("panel.fileExists") });
+    contentEl.createEl("p", {
+      text: `"${this.path}" ${t("panel.fileExistsDesc")}`,
+>>>>>>> in18
       attr: { style: "color: var(--text-muted); word-break: break-all;" }
     });
     const row = contentEl.createDiv({
       attr: { style: "display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;" }
     });
     row.createEl("button", {
+<<<<<<< HEAD
       text: "\u53D6\u6D88",
+=======
+      text: t("panel.cancel"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;"
       }
@@ -1796,7 +2097,11 @@ var OverwriteConfirmModal = class extends import_obsidian3.Modal {
       this.close();
     });
     row.createEl("button", {
+<<<<<<< HEAD
       text: "\u8986\u76D6",
+=======
+      text: t("panel.overwrite"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--interactive-accent); color: var(--text-on-accent); cursor: pointer;"
       }
@@ -1818,12 +2123,21 @@ function catmullRomSpline(points, segments = 8) {
     const p2 = points[i + 1];
     const p3 = points[Math.min(points.length - 1, i + 2)];
     for (let s = 1; s <= segments; s++) {
+<<<<<<< HEAD
       const t = s / segments;
       const t2 = t * t;
       const t3 = t2 * t;
       const x = 0.5 * (2 * p1.x + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3);
       const y = 0.5 * (2 * p1.y + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3);
       const pressure = p1.pressure + (p2.pressure - p1.pressure) * t;
+=======
+      const t2 = s / segments;
+      const t22 = t2 * t2;
+      const t3 = t22 * t2;
+      const x = 0.5 * (2 * p1.x + (-p0.x + p2.x) * t2 + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t22 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3);
+      const y = 0.5 * (2 * p1.y + (-p0.y + p2.y) * t2 + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t22 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3);
+      const pressure = p1.pressure + (p2.pressure - p1.pressure) * t2;
+>>>>>>> in18
       result.push({ x, y, pressure, timestamp: p1.timestamp });
     }
   }
@@ -2027,25 +2341,51 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     var _a, _b;
     const { containerEl } = this;
     containerEl.empty();
+<<<<<<< HEAD
     containerEl.createEl("h2", { text: "MDAnnot \u8BBE\u7F6E" });
     containerEl.createEl("h3", { text: "\u663E\u793A\u63A7\u5236" });
     new import_obsidian4.Setting(containerEl).setName("\u6279\u6CE8\u5F00\u5173").setDesc("\u6253\u5F00\u540E\u53EF\u5B9E\u73B0\u6587\u672C\u6E32\u67D3 \u9AD8\u4EAE/\u6CE2\u6D6A\u7EBF/\u8BC4\u8BBA").addToggle(
+=======
+    containerEl.createEl("h2", { text: t("settings.title") });
+    new import_obsidian4.Setting(containerEl).setName(t("settings.language.name")).setDesc(t("settings.language.desc")).addDropdown((dropdown) => {
+      dropdown.addOption("zh", "\u4E2D\u6587").addOption("en", "English").setValue(this.plugin.settings.language).onChange(async (val) => {
+        this.plugin.settings.language = val;
+        await this.plugin.saveSettings();
+        setLanguage(val);
+        this.display();
+      });
+    });
+    containerEl.createEl("h3", { text: t("settings.displayControl") });
+    new import_obsidian4.Setting(containerEl).setName(t("settings.showInEditor.name")).setDesc(t("settings.showInEditor.desc")).addToggle(
+>>>>>>> in18
       (toggle) => toggle.setValue(this.plugin.settings.showInEditor).onChange(async (val) => {
         this.plugin.settings.showInEditor = val;
         await this.plugin.saveSettings();
       })
     );
+<<<<<<< HEAD
     new import_obsidian4.Setting(containerEl).setName("\u81EA\u52A8\u663E\u793A\u6279\u6CE8\u9762\u677F").setDesc("\u5F53\u524D\u6587\u6863\u5B58\u5728\u6279\u6CE8\u65F6\uFF0C\u81EA\u52A8\u5728\u53F3\u4FA7\u6253\u5F00\u6279\u6CE8\u5217\u8868\u9762\u677F").addToggle(
+=======
+    new import_obsidian4.Setting(containerEl).setName(t("settings.autoShowPanel.name")).setDesc(t("settings.autoShowPanel.desc")).addToggle(
+>>>>>>> in18
       (toggle) => toggle.setValue(this.plugin.settings.autoShowPanel).onChange(async (val) => {
         this.plugin.settings.autoShowPanel = val;
         await this.plugin.saveSettings();
       })
     );
+<<<<<<< HEAD
     containerEl.createEl("h3", { text: "\u989C\u8272\u8BBE\u7F6E" });
     this.addColorPopup(
       containerEl,
       "\u9AD8\u4EAE\u989C\u8272",
       "\u7F16\u8F91\u6A21\u5F0F\u4E0B\u9AD8\u4EAE\u6279\u6CE8\u7684\u80CC\u666F\u8272",
+=======
+    containerEl.createEl("h3", { text: t("settings.colorSettings") });
+    this.addColorPopup(
+      containerEl,
+      t("settings.colorSettings") + " - " + t("settings.showInEditor.name"),
+      t("settings.colorDesc"),
+>>>>>>> in18
       "highlightColor",
       DEFAULT_SETTINGS.highlightColor,
       [
@@ -2065,8 +2405,13 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     );
     this.addColorPopup(
       containerEl,
+<<<<<<< HEAD
       "\u5212\u7EBF\u989C\u8272",
       "\u7F16\u8F91\u6A21\u5F0F\u4E0B\u5212\u7EBF\u6279\u6CE8\u7684\u6CE2\u6D6A\u7EBF\u989C\u8272",
+=======
+      t("toolbar.underline"),
+      t("settings.colorDesc"),
+>>>>>>> in18
       "underlineColor",
       DEFAULT_SETTINGS.underlineColor,
       [
@@ -2086,8 +2431,13 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     );
     this.addColorPopup(
       containerEl,
+<<<<<<< HEAD
       "\u8BC4\u8BBA\u9AD8\u4EAE\u989C\u8272",
       "\u7F16\u8F91\u6A21\u5F0F\u4E0B\u6587\u5B57\u8BC4\u8BBA\u7684\u6807\u8BB0\u80CC\u666F\u8272",
+=======
+      t("toolbar.comment"),
+      t("settings.colorDesc"),
+>>>>>>> in18
       "commentHighlightColor",
       DEFAULT_SETTINGS.commentHighlightColor,
       [
@@ -2105,7 +2455,11 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
         "#2F5F8A"
       ]
     );
+<<<<<<< HEAD
     new import_obsidian4.Setting(containerEl).setName("\u989C\u8272\u6E32\u67D3\u6A21\u5F0F").setDesc("\u5F00\u542F\uFF1A\u9009\u4E2D\u6587\u672C\u989C\u8272\u7EDF\u4E00\u4F7F\u7528\u914D\u7F6E\u989C\u8272\u3002\u5173\u95ED\uFF1A\u65B0\u9009\u4E2D\u6587\u672C\u4F7F\u7528\u914D\u7F6E\u989C\u8272\uFF0C\u4E0D\u5F71\u54CD\u5386\u53F2\u9009\u4E2D").addToggle(
+=======
+    new import_obsidian4.Setting(containerEl).setName(t("settings.colorRenderMode.name")).setDesc(t("settings.colorRenderMode.desc")).addToggle(
+>>>>>>> in18
       (toggle) => toggle.setValue(this.plugin.settings.applyColorGlobally).onChange(async (val) => {
         if (val && !this.plugin.settings.applyColorGlobally) {
           const confirmed = await new Promise((res) => {
@@ -2120,6 +2474,7 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
         await this.plugin.saveSettings();
       })
     );
+<<<<<<< HEAD
     containerEl.createEl("h3", { text: "\u6570\u636E\u5B58\u50A8" });
     const annotDir = this.plugin.storage.getAnnotationsDir();
     const basePath = ((_b = (_a = this.app.vault.adapter).getBasePath) == null ? void 0 : _b.call(_a)) || this.app.vault.adapter.basePath || "";
@@ -2129,12 +2484,24 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
       });
     }).addButton((btn) => {
       btn.setButtonText("\u6E05\u7A7A\u6570\u636E").setTooltip("\u5220\u9664\u6240\u6709\u6279\u6CE8\u6570\u636E\u5230\u5E9F\u7EB8\u7BD3").onClick(() => {
+=======
+    containerEl.createEl("h3", { text: t("settings.dataStorage") });
+    const annotDir = this.plugin.storage.getAnnotationsDir();
+    const basePath = ((_b = (_a = this.app.vault.adapter).getBasePath) == null ? void 0 : _b.call(_a)) || this.app.vault.adapter.basePath || "";
+    const pathSetting = new import_obsidian4.Setting(containerEl).setName(t("settings.dataPath.name")).setDesc(t("settings.dataPath.desc")).addExtraButton((btn) => {
+      btn.setIcon("copy").setTooltip(t("settings.copyPathTooltip")).onClick(() => {
+        navigator.clipboard.writeText(basePath + "/" + annotDir + "/");
+      });
+    }).addButton((btn) => {
+      btn.setButtonText(t("settings.clearDataBtn")).setTooltip(t("settings.clearDataTooltip")).onClick(() => {
+>>>>>>> in18
         new ClearDataConfirmModal(this.app, annotDir, this.plugin).open();
       });
     });
     const pathEl = containerEl.createDiv({ cls: "setting-item-description" });
     pathEl.style.cssText = "font-family: monospace; font-size: 11px; word-break: break-all; color: var(--text-muted); margin-top: -8px; padding-bottom: 12px;";
     pathEl.setText(basePath + "/" + annotDir + "/");
+<<<<<<< HEAD
     new import_obsidian4.Setting(containerEl).setName("\u6E05\u7406\u5931\u6548\u7F13\u5B58").setDesc("\u626B\u63CF\u6279\u6CE8\u6570\u636E\u76EE\u5F55\uFF0C\u5220\u9664\u90A3\u4E9B\u5BF9\u5E94\u6E90 .md \u6587\u4EF6\u5DF2\u4E0D\u5B58\u5728\u7684\u5B64\u7ACB\u6279\u6CE8\u6570\u636E\u6587\u4EF6").addButton((btn) => {
       btn.setButtonText("\u5F00\u59CB\u6E05\u7406").setTooltip("\u68C0\u67E5\u5E76\u5220\u9664\u5DF2\u65E0\u6CD5\u627E\u5230\u5BF9\u5E94\u6587\u6863\u7684\u6279\u6CE8\u7F13\u5B58").onClick(async () => {
         const removed = await this.plugin.storage.cleanupOrphanedAnnotations();
@@ -2148,6 +2515,21 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     containerEl.createEl("h3", { text: "\u6570\u636E\u5BFC\u51FA" });
     new import_obsidian4.Setting(containerEl).setName("\u5BFC\u51FA\u6240\u6709\u6279\u6CE8").setDesc("\u5C06\u6240\u6709\u6587\u6863\u7684\u6279\u6CE8\u5BFC\u51FA\u4E3A Markdown \u6587\u4EF6\uFF0C\u4FDD\u5B58\u5230\u4ED3\u5E93\u6839\u76EE\u5F55").addButton((btn) => {
       btn.setButtonText("\u5BFC\u51FA\u6240\u6709\u6279\u6CE8").setCta().onClick(async () => {
+=======
+    new import_obsidian4.Setting(containerEl).setName(t("settings.cleanupCache.name")).setDesc(t("settings.cleanupCache.desc")).addButton((btn) => {
+      btn.setButtonText(t("settings.startCleanupBtn")).setTooltip(t("settings.cleanupTooltip")).onClick(async () => {
+        const removed = await this.plugin.storage.cleanupOrphanedAnnotations();
+        if (removed.length === 0) {
+          new import_obsidian4.Notice(t("settings.noCacheFiles"));
+        } else {
+          new import_obsidian4.Notice(`${t("settings.cleanedCache")} ${removed.length} ${t("settings.cleanedCacheSuffix")}`);
+        }
+      });
+    });
+    containerEl.createEl("h3", { text: t("settings.dataExport") });
+    new import_obsidian4.Setting(containerEl).setName(t("settings.exportAll.name")).setDesc(t("settings.exportAll.desc")).addButton((btn) => {
+      btn.setButtonText(t("settings.exportAllBtn")).setCta().onClick(async () => {
+>>>>>>> in18
         await this.exportAllAnnotations();
       });
     });
@@ -2164,7 +2546,11 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
       border: 2px solid var(--background-modifier-border);
       cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     `;
+<<<<<<< HEAD
     trigger.title = "\u70B9\u51FB\u9009\u62E9\u989C\u8272";
+=======
+    trigger.title = t("settings.colorPickTooltip");
+>>>>>>> in18
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
       const existing = container.querySelector(".md-annot-color-popup");
@@ -2200,7 +2586,11 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
           ${isDefault(preset) ? "outline: 2px dashed var(--text-muted); outline-offset: 2px;" : ""}
           box-sizing: border-box; transition: transform 0.1s;
         `;
+<<<<<<< HEAD
         swatch.title = isDefault(preset) ? `${preset}\uFF08\u9ED8\u8BA4\u8272\uFF09` : preset;
+=======
+        swatch.title = isDefault(preset) ? t("settings.defaultColorLabel").replace("%s", preset) : preset;
+>>>>>>> in18
         swatch.addEventListener("click", (ev) => {
           ev.stopPropagation();
           this.plugin.settings[settingKey] = preset;
@@ -2223,7 +2613,11 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     const storage = this.plugin.storage;
     const registeredFiles = await storage.getRegisteredFiles();
     if (registeredFiles.length === 0) {
+<<<<<<< HEAD
       new import_obsidian4.Notice("MDAnnot: \u6CA1\u6709\u627E\u5230\u6279\u6CE8\u6570\u636E");
+=======
+      new import_obsidian4.Notice(t("settings.noAnnotationData"));
+>>>>>>> in18
       return;
     }
     let md = "> \u6807\u7B7E #\u6279\u6CE8\n\n";
@@ -2284,7 +2678,11 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
       }
     }
     if (!md) {
+<<<<<<< HEAD
       new import_obsidian4.Notice("MDAnnot: \u6CA1\u6709\u627E\u5230\u6279\u6CE8\u6570\u636E");
+=======
+      new import_obsidian4.Notice(t("settings.noAnnotationData"));
+>>>>>>> in18
       return;
     }
     const now = /* @__PURE__ */ new Date();
@@ -2298,10 +2696,17 @@ var MDAnnotSettingTab = class extends import_obsidian4.PluginSettingTab {
     const exportPath = `${timestamp}_\u6279\u6CE8.md`;
     try {
       await this.app.vault.adapter.write(exportPath, md);
+<<<<<<< HEAD
       new import_obsidian4.Notice(`MDAnnot: \u5DF2\u5BFC\u51FA\u6240\u6709\u6279\u6CE8\u5230 ${exportPath}`);
     } catch (e) {
       console.error("MDAnnot: \u5BFC\u51FA\u6240\u6709\u6279\u6CE8\u5931\u8D25", e);
       new import_obsidian4.Notice("MDAnnot: \u5BFC\u51FA\u6240\u6709\u6279\u6CE8\u5931\u8D25");
+=======
+      new import_obsidian4.Notice(`${t("settings.exportedAll")} ${exportPath}`);
+    } catch (e) {
+      console.error(t("settings.exportAllFail"), e);
+      new import_obsidian4.Notice(t("settings.exportAllFail"));
+>>>>>>> in18
     }
   }
 };
@@ -2316,18 +2721,30 @@ var ClearDataConfirmModal = class extends import_obsidian4.Modal {
     this.modalEl.style.width = "360px";
     this.modalEl.style.maxWidth = "90vw";
     contentEl.createEl("h3", {
+<<<<<<< HEAD
       text: "\u6E05\u7A7A\u6279\u6CE8\u6570\u636E",
       attr: { style: "color: var(--text-normal);" }
     });
     contentEl.createEl("p", {
       text: "\u6570\u636E\u5C06\u88AB\u5220\u9664\u5230\u5E9F\u7EB8\u7BD3\uFF0C\u786E\u8BA4\u6E05\u9664\u5417\uFF1F",
+=======
+      text: t("settings.confirmClearTitle"),
+      attr: { style: "color: var(--text-normal);" }
+    });
+    contentEl.createEl("p", {
+      text: t("settings.confirmClearDesc"),
+>>>>>>> in18
       attr: { style: "color: var(--text-muted);" }
     });
     const btnRow = contentEl.createDiv({
       attr: { style: "display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;" }
     });
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "\u53D6\u6D88",
+=======
+      text: t("settings.cancel"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;"
       }
@@ -2335,7 +2752,11 @@ var ClearDataConfirmModal = class extends import_obsidian4.Modal {
       this.close();
     });
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "\u786E\u8BA4\u6E05\u9664",
+=======
+      text: t("settings.confirmClearBtn"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--color-red); color: var(--text-on-accent); cursor: pointer;"
       }
@@ -2367,17 +2788,30 @@ var ConfirmModal = class extends import_obsidian4.Modal {
   }
   onOpen() {
     const { contentEl } = this;
+<<<<<<< HEAD
     contentEl.createEl("h3", { text: "\u786E\u8BA4\u5F00\u542F", attr: { style: "color: var(--text-normal);" } });
     contentEl.createEl("p", {
       text: "\u5F00\u542F\u540E\uFF0C\u6240\u6709\u5DF2\u9AD8\u4EAE\u3001\u5212\u7EBF\u3001\u8BC4\u8BBA\u90FD\u5C06\u4F7F\u7528\u5F53\u524D\u989C\u8272\uFF0C\u5DF2\u5B58\u50A8\u7684\u5355\u4E2A\u6279\u6CE8\u989C\u8272\u4F1A\u88AB\u5FFD\u7565\uFF0C\u662F\u5426\u786E\u5B9A\uFF1F"
     });
     const row = contentEl.createDiv({ attr: { style: "display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;" } });
     row.createEl("button", { text: "\u53D6\u6D88" }).addEventListener("click", () => {
+=======
+    contentEl.createEl("h3", { text: t("settings.confirmRenderModeTitle"), attr: { style: "color: var(--text-normal);" } });
+    contentEl.createEl("p", {
+      text: t("settings.confirmRenderModeDesc")
+    });
+    const row = contentEl.createDiv({ attr: { style: "display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;" } });
+    row.createEl("button", { text: t("settings.cancel") }).addEventListener("click", () => {
+>>>>>>> in18
       this.resolve(false);
       this.close();
     });
     row.createEl("button", {
+<<<<<<< HEAD
       text: "\u786E\u5B9A",
+=======
+      text: t("settings.confirm"),
+>>>>>>> in18
       attr: { style: "background: var(--interactive-accent); color: var(--text-on-accent);" }
     }).addEventListener("click", () => {
       this.resolve(true);
@@ -2595,6 +3029,10 @@ var MDAnnotPlugin = class extends import_obsidian5.Plugin {
   }
   async onload() {
     await this.loadSettings();
+<<<<<<< HEAD
+=======
+    setLanguage(this.settings.language);
+>>>>>>> in18
     await this.loadHighlightIcon();
     this.storage = new StorageService(this.app.vault);
     this.annotationManager = new AnnotationManager(this.storage);
@@ -2631,7 +3069,11 @@ var MDAnnotPlugin = class extends import_obsidian5.Plugin {
     }
     this.addCommand({
       id: "toggle-annot-panel",
+<<<<<<< HEAD
       name: "\u5207\u6362\u6279\u6CE8\u9762\u677F",
+=======
+      name: t("command.togglePanel"),
+>>>>>>> in18
       hotkeys: [{ modifiers: ["Mod", "Shift"], key: "A" }],
       callback: () => this.toggleSidePanel()
     });

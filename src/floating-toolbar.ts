@@ -13,6 +13,10 @@
 import { App, Editor, MarkdownView, Modal, setIcon } from "obsidian";
 import { AnnotationType } from "./data-models";
 import { AnnotationManager } from "./annotation-manager";
+<<<<<<< HEAD
+=======
+import { t } from "./i18n";
+>>>>>>> in18
 
 // 将 hex 颜色加深指定比例，用于图标颜色（比背景色更深）
 function darkenColor(hex: string, amount: number): string {
@@ -110,7 +114,11 @@ export class FloatingToolbar {
 
     // ── 高亮：brush 图标 ──
     const highlightColor = darkenColor(this.styleConfig?.highlightColor || "#90EE90", 0.4);
+<<<<<<< HEAD
     this.addButton("brush", "highlight", "高亮", true, () => {
+=======
+    this.addButton("brush", "highlight", t("toolbar.highlight"), true, () => {
+>>>>>>> in18
       if (isOverLimit) return;
       this.removeOverlappingHLUL(cursorFrom.line, cursorFrom.ch, cursorTo.ch, cursorTo.line);
       const hlColorOpt = !this.applyColorGlobally && this.styleConfig?.highlightColor
@@ -125,7 +133,11 @@ export class FloatingToolbar {
       highlightActive);
 
     // ── 划线：波浪线 ──
+<<<<<<< HEAD
     this.addButton("〰️", "underline", "划线", false, () => {
+=======
+    this.addButton("〰️", "underline", t("toolbar.underline"), false, () => {
+>>>>>>> in18
       if (isOverLimit) return;
       this.removeOverlappingHLUL(cursorFrom.line, cursorFrom.ch, cursorTo.ch, cursorTo.line);
       const ulColorOpt = !this.applyColorGlobally && this.styleConfig?.underlineColor
@@ -140,7 +152,11 @@ export class FloatingToolbar {
       null, undefined, underlineActive);
 
     // ── 批注：message-circle 图标 ──
+<<<<<<< HEAD
     this.addButton("message-circle", "comment", "评论", true, () => {
+=======
+    this.addButton("message-circle", "comment", t("toolbar.comment"), true, () => {
+>>>>>>> in18
       if (isOverLimit) return;
       this.hide();
       const modal = new CommentModal(this.app,
@@ -313,7 +329,11 @@ export class FloatingToolbar {
 
     // ── 高亮 ──
     const highlightColor = darkenColor(this.styleConfig?.highlightColor || "#90EE90", 0.4);
+<<<<<<< HEAD
     this.addButton("brush", "highlight", "高亮", true, () => {
+=======
+    this.addButton("brush", "highlight", t("toolbar.highlight"), true, () => {
+>>>>>>> in18
       if (isOverLimit || foundLine < 0) return;
       this.removeOverlappingHLUL(foundLine, foundCh, foundCh + selection.length, foundLine + (selection.split('\n').length - 1));
       this.annotationManager.createAnnotation(
@@ -326,7 +346,11 @@ export class FloatingToolbar {
       highlightActive);
 
     // ── 划线 ──
+<<<<<<< HEAD
     this.addButton("\u3030\ufe0f", "underline", "划线", false, () => {
+=======
+    this.addButton("\u3030\ufe0f", "underline", t("toolbar.underline"), false, () => {
+>>>>>>> in18
       if (isOverLimit || foundLine < 0) return;
       this.removeOverlappingHLUL(foundLine, foundCh, foundCh + selection.length, foundLine + (selection.split('\n').length - 1));
       this.annotationManager.createAnnotation(
@@ -339,7 +363,11 @@ export class FloatingToolbar {
       null, undefined, underlineActive);
 
     // ── 批注 ──
+<<<<<<< HEAD
     this.addButton("message-circle", "comment", "评论", true, () => {
+=======
+    this.addButton("message-circle", "comment", t("toolbar.comment"), true, () => {
+>>>>>>> in18
       if (isOverLimit) return;
       this.hide();
       const modal = new CommentModal(this.app,
@@ -400,7 +428,11 @@ class CommentModal extends Modal {
         style: "width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-normal); box-sizing: border-box;",
       },
     });
+<<<<<<< HEAD
     input.placeholder = "在此输入批注文字...";
+=======
+    input.placeholder = t("toolbar.commentPlaceholder");
+>>>>>>> in18
     input.focus();
 
     const btnRow = contentEl.createDiv({
@@ -408,14 +440,22 @@ class CommentModal extends Modal {
     });
 
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "取消",
+=======
+      text: t("toolbar.cancel"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;",
       },
     }).addEventListener("click", () => this.close());
 
     btnRow.createEl("button", {
+<<<<<<< HEAD
       text: "确定",
+=======
+      text: t("toolbar.confirm"),
+>>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--interactive-accent); color: var(--text-on-accent); cursor: pointer;",
       },

@@ -11,6 +11,10 @@ import { CanvasOverlay, CanvasOverlayConfig } from "./canvas-overlay";
 import { AnnotationType, StrokeTool, AnchorStatus } from "./data-models";
 import { MDAnnotSettingTab } from "./settings-tab";
 import { Annotation, MDAnnotSettings, DEFAULT_SETTINGS } from "./data-models";
+<<<<<<< HEAD
+=======
+import { t, setLanguage } from "./i18n";
+>>>>>>> in18
 import {
   annotationDecorationsPlugin,
   changeTrackerPlugin,
@@ -40,6 +44,10 @@ export default class MDAnnotPlugin extends Plugin {
 
   async onload() {
     await this.loadSettings();
+<<<<<<< HEAD
+=======
+    setLanguage(this.settings.language);
+>>>>>>> in18
     await this.loadHighlightIcon();
 
     this.storage = new StorageService(this.app.vault);
@@ -86,7 +94,11 @@ export default class MDAnnotPlugin extends Plugin {
     // 命令
     this.addCommand({
       id: "toggle-annot-panel",
+<<<<<<< HEAD
       name: "切换批注面板",
+=======
+      name: t('command.togglePanel'),
+>>>>>>> in18
       hotkeys: [{ modifiers: ["Mod", "Shift"], key: "A" }],
       callback: () => this.toggleSidePanel(),
     });
