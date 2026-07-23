@@ -1,6 +1,6 @@
 {
   "name": "md-annot",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "MDAnnot —— Obsidian Markdown 批注插件。在 Markdown 上留下你的阅读痕迹——高亮、划线、批注，不改原文。",
   "main": "main.js",
   "scripts": {
