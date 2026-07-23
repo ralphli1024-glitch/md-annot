@@ -12,10 +12,7 @@
 
 import { App, ItemView, MarkdownView, Modal, Notice, WorkspaceLeaf, setIcon } from "obsidian";
 import { Annotation, AnnotationType, AnchorStatus, MDAnnotSettings } from "./data-models";
-<<<<<<< HEAD
-=======
 import { t } from "./i18n";
->>>>>>> in18
 import { AnnotationManager } from "./annotation-manager";
 
 function hexToRgba(hex: string, alpha: number): string {
@@ -81,11 +78,7 @@ export class SidePanelView extends ItemView {
     this.contentEl.empty();
 
     const header = this.contentEl.createDiv({ cls: "md-annot-panel-header" });
-<<<<<<< HEAD
-    header.createEl("h3", { text: "批注列表" });
-=======
     header.createEl("h3", { text: t("panel.title") });
->>>>>>> in18
 
     // 筛选 + 排序并排下拉框
     const controlsBar = this.contentEl.createDiv({ cls: "md-annot-controls-bar" });
@@ -93,17 +86,10 @@ export class SidePanelView extends ItemView {
     // 筛选下拉
     const filterSelect = controlsBar.createEl("select", { cls: "md-annot-controls-select" });
     const filterOptions: Array<{ value: AnnotationType | "all"; label: string }> = [
-<<<<<<< HEAD
-      { value: "all", label: "全部" },
-      { value: AnnotationType.HIGHLIGHT, label: "高亮" },
-      { value: AnnotationType.UNDERLINE, label: "划线" },
-      { value: AnnotationType.COMMENT, label: "批注" },
-=======
       { value: "all", label: t("panel.filterAll") },
       { value: AnnotationType.HIGHLIGHT, label: t("panel.filterHighlight") },
       { value: AnnotationType.UNDERLINE, label: t("panel.filterUnderline") },
       { value: AnnotationType.COMMENT, label: t("panel.filterComment") },
->>>>>>> in18
     ];
     for (const opt of filterOptions) {
       filterSelect.createEl("option", { value: opt.value, text: opt.label });
@@ -117,15 +103,9 @@ export class SidePanelView extends ItemView {
     // 排序下拉
     const sortSelect = controlsBar.createEl("select", { cls: "md-annot-controls-select" });
     const sortOptions: Array<{ value: string; label: string }> = [
-<<<<<<< HEAD
-      { value: "position", label: "位置" },
-      { value: "type-asc", label: "高亮在前" },
-      { value: "type-desc", label: "批注在前" },
-=======
       { value: "position", label: t("panel.sortPosition") },
       { value: "type-asc", label: t("panel.sortHighlightFirst") },
       { value: "type-desc", label: t("panel.sortCommentFirst") },
->>>>>>> in18
     ];
     for (const opt of sortOptions) {
       sortSelect.createEl("option", { value: opt.value, text: opt.label });
@@ -141,11 +121,7 @@ export class SidePanelView extends ItemView {
 
     if (annotations.length === 0) {
       listEl.createEl("p", {
-<<<<<<< HEAD
-        text: "暂无批注",
-=======
         text: t("panel.empty"),
->>>>>>> in18
         cls: "md-annot-panel-empty",
       });
       return;
@@ -174,11 +150,7 @@ export class SidePanelView extends ItemView {
       if (svgEl) {
         (svgEl as HTMLElement).style.cssText = "width:8px;height:8px;";
       }
-<<<<<<< HEAD
-      deleteBtn.title = "删除";
-=======
       deleteBtn.title = t("settings.deleteBtn");
->>>>>>> in18
       deleteBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         this.annotationManager.deleteAnnotation(anno.id);
@@ -201,11 +173,7 @@ export class SidePanelView extends ItemView {
     const exportBtnContainer = this.contentEl.createDiv({ cls: "md-annot-panel-export" });
     const exportBtn = exportBtnContainer.createEl("button", {
       cls: "md-annot-panel-export-btn",
-<<<<<<< HEAD
-      text: "📥 导出批注",
-=======
       text: t("panel.exportBtn"),
->>>>>>> in18
     });
     exportBtn.addEventListener("click", () => {
       this.exportCurrentAnnotations();
@@ -389,11 +357,7 @@ export class SidePanelView extends ItemView {
   private async exportCurrentAnnotations(): Promise<void> {
     const filePath = this.annotationManager.getCurrentFilePath();
     if (!filePath) {
-<<<<<<< HEAD
-      new Notice("MDAnnot: 当前没有打开的文件");
-=======
       new Notice(t('panel.noFileOpen'));
->>>>>>> in18
       return;
     }
 
@@ -403,11 +367,7 @@ export class SidePanelView extends ItemView {
     );
 
     if (annotations.length === 0) {
-<<<<<<< HEAD
-      new Notice("MDAnnot: 当前文档没有批注");
-=======
       new Notice(t('panel.noAnnotations'));
->>>>>>> in18
       return;
     }
 
@@ -434,17 +394,10 @@ export class SidePanelView extends ItemView {
 
     try {
       await this.app.vault.adapter.write(exportPath, mdContent);
-<<<<<<< HEAD
-      new Notice(`MDAnnot: 已导出批注到 ${exportPath}`);
-    } catch (e) {
-      console.error("MDAnnot: 导出批注失败", e);
-      new Notice("MDAnnot: 导出批注失败");
-=======
       new Notice(`${t('panel.exported')} ${exportPath}`);
     } catch (e) {
       console.error("MDAnnot: 导出批注失败", e);
       new Notice(t('panel.exportFail'));
->>>>>>> in18
     }
   }
 
@@ -465,11 +418,7 @@ export class SidePanelView extends ItemView {
     );
 
     if (highlights.length > 0) {
-<<<<<<< HEAD
-      md += `# 高亮\n`;
-=======
       md += `${t("exportTemplate.highlights")}\n`;
->>>>>>> in18
       highlights.forEach((a) => {
         md += `- ${a.targetText}\n`;
       });
@@ -477,11 +426,7 @@ export class SidePanelView extends ItemView {
     }
 
     if (underlines.length > 0) {
-<<<<<<< HEAD
-      md += `# 划线\n`;
-=======
       md += `${t("exportTemplate.underlines")}\n`;
->>>>>>> in18
       underlines.forEach((a) => {
         md += `- ${a.targetText}\n`;
       });
@@ -489,11 +434,7 @@ export class SidePanelView extends ItemView {
     }
 
     if (comments.length > 0) {
-<<<<<<< HEAD
-      md += `# 批注\n`;
-=======
       md += `${t("exportTemplate.comments")}\n`;
->>>>>>> in18
       comments.forEach((a) => {
         md += `- ${a.targetText}\n`;
         if (a.commentText) {
@@ -529,15 +470,9 @@ class OverwriteConfirmModal extends Modal {
     this.modalEl.style.width = "400px";
     this.modalEl.style.maxWidth = "90vw";
 
-<<<<<<< HEAD
-    contentEl.createEl("h3", { text: "文件已存在" });
-    contentEl.createEl("p", {
-      text: `"${this.path}" 已存在，是否覆盖？`,
-=======
     contentEl.createEl("h3", { text: t("panel.fileExists") });
     contentEl.createEl("p", {
       text: `"${this.path}" ${t("panel.fileExistsDesc")}`,
->>>>>>> in18
       attr: { style: "color: var(--text-muted); word-break: break-all;" },
     });
 
@@ -546,11 +481,7 @@ class OverwriteConfirmModal extends Modal {
     });
 
     row.createEl("button", {
-<<<<<<< HEAD
-      text: "取消",
-=======
       text: t("panel.cancel"),
->>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: 1px solid var(--background-modifier-border); background: transparent; cursor: pointer;",
       },
@@ -560,11 +491,7 @@ class OverwriteConfirmModal extends Modal {
     });
 
     row.createEl("button", {
-<<<<<<< HEAD
-      text: "覆盖",
-=======
       text: t("panel.overwrite"),
->>>>>>> in18
       attr: {
         style: "padding: 6px 16px; border-radius: 6px; border: none; background: var(--interactive-accent); color: var(--text-on-accent); cursor: pointer;",
       },

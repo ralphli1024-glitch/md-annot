@@ -243,16 +243,10 @@ export interface MDAnnotSettings {
   // 自定义图标
   highlightIconPath: string;   // 高亮工具栏图标文件路径（vault 内相对路径），空 = 默认 Lucide brush
   highlightIconSize: number;   // 图标显示尺寸 px
-<<<<<<< HEAD
-}
-
-
-=======
   // 国际化
   language: 'zh' | 'en';       // 界面语言
 }
 
->>>>>>> in18
 // 默认设置值
 export const DEFAULT_SETTINGS: MDAnnotSettings = {
   showInEditor: true,
@@ -269,8 +263,5 @@ export const DEFAULT_SETTINGS: MDAnnotSettings = {
   applyColorGlobally: true,
   highlightIconPath: '',
   highlightIconSize: 24,
-<<<<<<< HEAD
-=======
   language: 'zh',
->>>>>>> in18
 };
